@@ -172,16 +172,3 @@ namespace LineUp
         }
     }
 }
-
-
-
-
-
-/*try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ex.message: " + ex.Message + " stacktrace:" + ex.StackTrace, "addPlayer Error");
-            }*/
