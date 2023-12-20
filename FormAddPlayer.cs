@@ -36,6 +36,8 @@ namespace LineUp
                     allPlayers.Clear();
                     query.Clear();
 
+                    textBoxOverall.Text = textBoxOverall.Text.Replace(',', '.'); // ondalık hatası için
+
                     playerName.Append(textBoxName.Text);
                     double.TryParse(textBoxOverall.Text, out playerOverall);
 
