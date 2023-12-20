@@ -22,17 +22,7 @@ namespace LineUp
         string[] players = new string[3];
         Dictionary<int, Tuple<string, double>> allPlayers = new Dictionary<int, Tuple<string, double>>();
         Random random = new Random();
-        int index = 0;
         int lastTeam = 1;
-        Dictionary<string, int> goalkeepers = new Dictionary<string, int>();
-        Dictionary<string, int> defences = new Dictionary<string, int>();
-        Dictionary<string, int> middlefielders = new Dictionary<string, int>();
-        Dictionary<string, int> forwards = new Dictionary<string, int>();
-        //Dictionary<string, int> eightToTen = new Dictionary<string, int>();
-        //Dictionary<string, int> sevenToEight = new Dictionary<string, int>();
-        //Dictionary<string, int> sixToSeven = new Dictionary<string, int>();
-        //Dictionary<string, int> fiveToSix = new Dictionary<string, int>();
-
         List<Player> playerList = new List<Player>();
         List<Player> eightToTen = new List<Player>();
         List<Player> sevenToEight = new List<Player>();
@@ -45,7 +35,6 @@ namespace LineUp
             {
                 FormAddPlayer formAddPlayer = new FormAddPlayer();
                 formAddPlayer.ShowDialog();
-                //listview'ı güncelle sürekli
             }
             catch (Exception ex)
             {
@@ -74,11 +63,9 @@ namespace LineUp
             {
                 foreach (var player in allPlayers.Values)
                 {
-
                     players[1] = player.Item1;
                     players[2] = player.Item2.ToString();
-                    //players[3] = player.Item3.ToString();
-                    listView1.Items.Add(new ListViewItem(players));
+                    listViewAllPlayers.Items.Add(new ListViewItem(players));
                 }
             }
             catch (Exception ex)
@@ -87,25 +74,20 @@ namespace LineUp
             }
         }
 
-        int indis = 0;
-
         private void buttonCreateSquad_Click(object sender, EventArgs e)
         {
             try
             {
-                if (listView1.CheckedItems.Count > 0)
+                if (listViewAllPlayers.CheckedItems.Count > 0)
                 {
-
-
-                    for (int i = 0; i < listView1.CheckedItems.Count; i++)
+                    for (int i = 0; i < listViewAllPlayers.CheckedItems.Count; i++)
                     {
                         playerList.Add(
                             new Player
                             {
-                                playerName = listView1.CheckedItems[i].SubItems[1].Text,
-                                overall = int.Parse(listView1.CheckedItems[i].SubItems[2].Text),
-                            }
-                            );
+                                playerName = listViewAllPlayers.CheckedItems[i].SubItems[1].Text,
+                                overall = double.Parse(listViewAllPlayers.CheckedItems[i].SubItems[2].Text),
+                            });
                     }
                     playerList = playerList.OrderBy(x => random.Next()).ToList();
                     
@@ -213,7 +195,7 @@ namespace LineUp
     public class Player
     {
         public string playerName { get; set; }
-        public int overall { get; set; }
+        public double overall { get; set; }
 
     }
 }

@@ -31,11 +31,10 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.buttonAddPlayer = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDownOverall = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBoxOverall = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOverall)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -58,7 +57,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericUpDownOverall);
+            this.groupBox1.Controls.Add(this.textBoxOverall);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBoxName);
@@ -68,28 +67,6 @@
             this.groupBox1.Size = new System.Drawing.Size(282, 222);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            // 
-            // numericUpDownOverall
-            // 
-            this.numericUpDownOverall.Location = new System.Drawing.Point(106, 97);
-            this.numericUpDownOverall.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDownOverall.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownOverall.Name = "numericUpDownOverall";
-            this.numericUpDownOverall.Size = new System.Drawing.Size(143, 27);
-            this.numericUpDownOverall.TabIndex = 6;
-            this.numericUpDownOverall.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
             // 
             // label3
             // 
@@ -109,6 +86,13 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Oyuncu Adı:";
             // 
+            // textBoxOverall
+            // 
+            this.textBoxOverall.Location = new System.Drawing.Point(106, 96);
+            this.textBoxOverall.Name = "textBoxOverall";
+            this.textBoxOverall.Size = new System.Drawing.Size(143, 27);
+            this.textBoxOverall.TabIndex = 8;
+            // 
             // FormAddPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -126,7 +110,6 @@
             this.Text = "FormAddPlayer";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOverall)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -137,7 +120,7 @@
         private System.Windows.Forms.Button buttonAddPlayer;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDownOverall;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxOverall;
     }
 }

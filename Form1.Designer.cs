@@ -32,7 +32,7 @@
             this.addPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.buttonCreateSquad = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewAllPlayers = new System.Windows.Forms.ListView();
             this.columnHeaderCheck = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderOverall = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -53,7 +53,7 @@
             this.addPlayerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(846, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(718, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -73,7 +73,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.buttonCreateSquad);
-            this.splitContainer1.Panel1.Controls.Add(this.listView1);
+            this.splitContainer1.Panel1.Controls.Add(this.listViewAllPlayers);
             // 
             // splitContainer1.Panel2
             // 
@@ -81,14 +81,14 @@
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.listBoxTeamB);
             this.splitContainer1.Panel2.Controls.Add(this.listBoxTeamA);
-            this.splitContainer1.Size = new System.Drawing.Size(846, 512);
-            this.splitContainer1.SplitterDistance = 379;
+            this.splitContainer1.Size = new System.Drawing.Size(718, 512);
+            this.splitContainer1.SplitterDistance = 273;
             this.splitContainer1.TabIndex = 1;
             // 
             // buttonCreateSquad
             // 
             this.buttonCreateSquad.BackColor = System.Drawing.Color.Aqua;
-            this.buttonCreateSquad.Location = new System.Drawing.Point(125, 455);
+            this.buttonCreateSquad.Location = new System.Drawing.Point(63, 455);
             this.buttonCreateSquad.Name = "buttonCreateSquad";
             this.buttonCreateSquad.Size = new System.Drawing.Size(134, 45);
             this.buttonCreateSquad.TabIndex = 1;
@@ -96,22 +96,22 @@
             this.buttonCreateSquad.UseVisualStyleBackColor = false;
             this.buttonCreateSquad.Click += new System.EventHandler(this.buttonCreateSquad_Click);
             // 
-            // listView1
+            // listViewAllPlayers
             // 
-            this.listView1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.listView1.CheckBoxes = true;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewAllPlayers.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.listViewAllPlayers.CheckBoxes = true;
+            this.listViewAllPlayers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderCheck,
             this.columnHeaderName,
             this.columnHeaderOverall});
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(364, 446);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listViewAllPlayers.FullRowSelect = true;
+            this.listViewAllPlayers.HideSelection = false;
+            this.listViewAllPlayers.Location = new System.Drawing.Point(12, 3);
+            this.listViewAllPlayers.Name = "listViewAllPlayers";
+            this.listViewAllPlayers.Size = new System.Drawing.Size(247, 446);
+            this.listViewAllPlayers.TabIndex = 0;
+            this.listViewAllPlayers.UseCompatibleStateImageBehavior = false;
+            this.listViewAllPlayers.View = System.Windows.Forms.View.Details;
             // 
             // columnHeaderCheck
             // 
@@ -130,7 +130,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(278, 79);
+            this.label2.Location = new System.Drawing.Point(246, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 3;
@@ -139,7 +139,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 79);
+            this.label1.Location = new System.Drawing.Point(21, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 2;
@@ -150,7 +150,7 @@
             this.listBoxTeamB.BackColor = System.Drawing.Color.LightSeaGreen;
             this.listBoxTeamB.FormattingEnabled = true;
             this.listBoxTeamB.ItemHeight = 20;
-            this.listBoxTeamB.Location = new System.Drawing.Point(282, 112);
+            this.listBoxTeamB.Location = new System.Drawing.Point(250, 112);
             this.listBoxTeamB.Name = "listBoxTeamB";
             this.listBoxTeamB.Size = new System.Drawing.Size(165, 244);
             this.listBoxTeamB.TabIndex = 1;
@@ -160,7 +160,7 @@
             this.listBoxTeamA.BackColor = System.Drawing.Color.LightSeaGreen;
             this.listBoxTeamA.FormattingEnabled = true;
             this.listBoxTeamA.ItemHeight = 20;
-            this.listBoxTeamA.Location = new System.Drawing.Point(53, 112);
+            this.listBoxTeamA.Location = new System.Drawing.Point(21, 112);
             this.listBoxTeamA.Name = "listBoxTeamA";
             this.listBoxTeamA.Size = new System.Drawing.Size(165, 244);
             this.listBoxTeamA.TabIndex = 0;
@@ -170,7 +170,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(846, 536);
+            this.ClientSize = new System.Drawing.Size(718, 536);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -196,7 +196,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button buttonCreateSquad;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewAllPlayers;
         private System.Windows.Forms.ToolStripMenuItem addPlayerToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader columnHeaderCheck;
         private System.Windows.Forms.ColumnHeader columnHeaderName;

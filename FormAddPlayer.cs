@@ -19,12 +19,11 @@ namespace LineUp
         }
 
         StringBuilder playerName = new StringBuilder();
-        StringBuilder playerPosition = new StringBuilder();
         StringBuilder query = new StringBuilder();
         List<string> players = new List<string>();
         Dictionary<int, Tuple< string, double>> allPlayers = new Dictionary<int, Tuple< string, double>>();
         bool control = true;
-        int playerOverall;
+        double playerOverall;
 
         private void buttonAddPlayer_Click(object sender, EventArgs e)
         {
@@ -38,7 +37,7 @@ namespace LineUp
                     query.Clear();
 
                     playerName.Append(textBoxName.Text);
-                    playerOverall = int.Parse(numericUpDownOverall.Value.ToString());
+                    double.TryParse(textBoxOverall.Text, out playerOverall);
 
                     query.Append("SELECT * FROM Table_Players");
                     allPlayers = SQLProcess.GetPlayers(query.ToString());
