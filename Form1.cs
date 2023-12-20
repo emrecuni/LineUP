@@ -85,10 +85,6 @@ namespace LineUp
                 {
                     for (int i = 0; i < listView1.CheckedItems.Count; i++)
                     {
-                        //index = random.Next(listView1.CheckedItems.Count);
-                        //if (!allPlayers.ContainsKey(index))
-                        //{
-                        //allPlayers.Add(index, Tuple.Create(listView1.CheckedItems[index].SubItems[1].Text, listView1.CheckedItems[index].SubItems[2].Text));
                         switch (listView1.CheckedItems[i].SubItems[2].Text)
                         {
                             case "Kaleci":
@@ -104,9 +100,6 @@ namespace LineUp
                                 forwards.Add(listView1.CheckedItems[i].SubItems[1].Text, int.Parse(listView1.CheckedItems[i].SubItems[3].Text));
                                 break;
                         }
-                        //}
-                        //else
-                        //    i--;
                     }
                     goalkeepers = goalkeepers.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
 
