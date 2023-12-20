@@ -20,7 +20,6 @@ namespace LineUp
 
         StringBuilder playerName = new StringBuilder();
         StringBuilder playerPosition = new StringBuilder();
-        StringBuilder filePath = new StringBuilder();
         StringBuilder query = new StringBuilder();
         List<string> players = new List<string>();
         Dictionary<int, Tuple< string, double>> allPlayers = new Dictionary<int, Tuple< string, double>>();
@@ -31,16 +30,14 @@ namespace LineUp
         {
             try
             {
-                if (textBoxName.Text != null && textBoxName.Text != string.Empty) //&& comboBoxPosition.SelectedIndex != -1)
+                if (textBoxName.Text != null && textBoxName.Text != string.Empty) 
                 {
                     players.Clear();
                     playerName.Clear();
-                    //playerPosition.Clear();
                     allPlayers.Clear();
                     query.Clear();
 
                     playerName.Append(textBoxName.Text);
-                    //playerPosition.Append(comboBoxPosition.SelectedItem.ToString());
                     playerOverall = int.Parse(numericUpDownOverall.Value.ToString());
 
                     query.Append("SELECT * FROM Table_Players");
@@ -65,41 +62,12 @@ namespace LineUp
                         else
                             MessageBox.Show("İşlem Sırasında Bir Hata Oluştu", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
-                    //if (!File.Exists(filePath.ToString()))
-                    //    File.Create(filePath.ToString()).Close();
-
-                    //allPlayers = File.ReadAllLines(filePath.ToString());
-
-                    //foreach (var player in allPlayers)
-                    //{
-                    //    players.Add(player);
-                    //    if (player.Contains(playerName.ToString()) && player.Contains(playerPosition.ToString()))
-                    //    {
-                    //        MessageBox.Show("Var Olan Oyuncuyu Ekleyemezsiniz!", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //        control = false;                           
-                    //    }
-                    //}
-
-                    //players.Add("Seç#" +playerName + "#" + playerPosition);
-
-                    //if (control)
-                    //{
-                    //    File.WriteAllLines(filePath.ToString(), players);
-                    //    MessageBox.Show("Oyuncu Eklendi.", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //}
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ex.message: " + ex.Message + " stacktrace:" + ex.StackTrace, "addPlayer Error");
             }
-        }
-
-        private void FormAddPlayer_Load(object sender, EventArgs e)
-        {
-            filePath.Clear();
-            filePath.Append(Application.StartupPath + "\\oyuncular.txt");
         }
     }
 }
