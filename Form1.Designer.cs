@@ -35,12 +35,11 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeaderCheck = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderPosition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderOverall = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxTeamB = new System.Windows.Forms.ListBox();
             this.listBoxTeamA = new System.Windows.Forms.ListBox();
-            this.columnHeaderOverall = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -104,7 +103,6 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderCheck,
             this.columnHeaderName,
-            this.columnHeaderPosition,
             this.columnHeaderOverall});
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
@@ -125,10 +123,9 @@
             this.columnHeaderName.Text = "Oyuncu";
             this.columnHeaderName.Width = 140;
             // 
-            // columnHeaderPosition
+            // columnHeaderOverall
             // 
-            this.columnHeaderPosition.Text = "Mevki";
-            this.columnHeaderPosition.Width = 120;
+            this.columnHeaderOverall.Text = "Güç";
             // 
             // label2
             // 
@@ -168,10 +165,6 @@
             this.listBoxTeamA.Size = new System.Drawing.Size(165, 244);
             this.listBoxTeamA.TabIndex = 0;
             // 
-            // columnHeaderOverall
-            // 
-            this.columnHeaderOverall.Text = "Güç";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -207,7 +200,6 @@
         private System.Windows.Forms.ToolStripMenuItem addPlayerToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader columnHeaderCheck;
         private System.Windows.Forms.ColumnHeader columnHeaderName;
-        private System.Windows.Forms.ColumnHeader columnHeaderPosition;
         private System.Windows.Forms.ListBox listBoxTeamB;
         private System.Windows.Forms.ListBox listBoxTeamA;
         private System.Windows.Forms.Label label2;

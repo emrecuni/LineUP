@@ -13,7 +13,7 @@ namespace LineUp
         static string connectionString = "Server=.;Database=LineUP;User Id=Cuni;Password=123456;";
         static SqlConnection connection;
         static SqlCommand command;
-        static Dictionary<int, Tuple<string, string, int>> allPlayers = new Dictionary<int, Tuple<string, string, int>>();
+        static Dictionary<int, Tuple<string, double>> allPlayers = new Dictionary<int, Tuple<string, double>>();
 
         private static bool ConnectionOpen(string connectionString)
         {
@@ -30,26 +30,26 @@ namespace LineUp
             }
         }
 
-        public static Dictionary<int,Tuple<string,string, int>> GetPlayers(string query)
+        public static Dictionary<int, Tuple<string, double>> GetPlayers(string query)
         {
             try
             {
-                if(!ConnectionOpen(connectionString))
+                if (!ConnectionOpen(connectionString))
                     return null;
                 allPlayers.Clear();
                 SqlDataReader reader = null;
                 command = new SqlCommand(query, connection);
                 reader = command.ExecuteReader();
 
-                while(reader.Read()) 
-                    allPlayers.Add(reader.GetInt32(0), Tuple.Create(reader.GetString(1), reader.GetString(2), int.Parse(reader.GetByte(3).ToString())));
+                while (reader.Read())
+                    allPlayers.Add(reader.GetInt32(0), Tuple.Create(reader.GetString(1), reader.GetDouble(2)));
 
                 command.Dispose();
                 command = null;
                 reader.Close();
                 reader = null;
 
-                return allPlayers; 
+                return allPlayers;
             }
             catch (Exception ex)
             {
@@ -62,7 +62,7 @@ namespace LineUp
         {
             try
             {
-                if(!ConnectionOpen(connectionString))
+                if (!ConnectionOpen(connectionString))
                     return false;
                 command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();

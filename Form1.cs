@@ -19,8 +19,8 @@ namespace LineUp
         }
 
         StringBuilder query = new StringBuilder();
-        string[] players = new string[4];
-        Dictionary<int, Tuple<string, string, int>> allPlayers = new Dictionary<int, Tuple<string, string, int>>();
+        string[] players = new string[3];
+        Dictionary<int, Tuple<string, double>> allPlayers = new Dictionary<int, Tuple<string, double>>();
         Random random = new Random();
         int index = 0;
         int lastTeam = 1;
@@ -28,6 +28,16 @@ namespace LineUp
         Dictionary<string, int> defences = new Dictionary<string, int>();
         Dictionary<string, int> middlefielders = new Dictionary<string, int>();
         Dictionary<string, int> forwards = new Dictionary<string, int>();
+        //Dictionary<string, int> eightToTen = new Dictionary<string, int>();
+        //Dictionary<string, int> sevenToEight = new Dictionary<string, int>();
+        //Dictionary<string, int> sixToSeven = new Dictionary<string, int>();
+        //Dictionary<string, int> fiveToSix = new Dictionary<string, int>();
+
+        List<Player> playerList = new List<Player>();
+        List<Player> eightToTen = new List<Player>();
+        List<Player> sevenToEight = new List<Player>();
+        List<Player> sixToSeven = new List<Player>();
+        List<Player> fiveToSix = new List<Player>();
 
         private void addPlayerToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -66,8 +76,8 @@ namespace LineUp
                 {
 
                     players[1] = player.Item1;
-                    players[2] = player.Item2;
-                    players[3] = player.Item3.ToString();
+                    players[2] = player.Item2.ToString();
+                    //players[3] = player.Item3.ToString();
                     listView1.Items.Add(new ListViewItem(players));
                 }
             }
@@ -77,82 +87,117 @@ namespace LineUp
             }
         }
 
+        int indis = 0;
+
         private void buttonCreateSquad_Click(object sender, EventArgs e)
         {
             try
             {
                 if (listView1.CheckedItems.Count > 0)
                 {
+
+
                     for (int i = 0; i < listView1.CheckedItems.Count; i++)
                     {
-                        switch (listView1.CheckedItems[i].SubItems[2].Text)
+                        playerList.Add(
+                            new Player
+                            {
+                                playerName = listView1.CheckedItems[i].SubItems[1].Text,
+                                overall = int.Parse(listView1.CheckedItems[i].SubItems[2].Text),
+                            }
+                            );
+                    }
+                    playerList = playerList.OrderBy(x => random.Next()).ToList();
+                    
+                    for (int i = 0; i < playerList.Count; i++)
+                    {
+                        if (playerList[i].overall >= 8)
                         {
-                            case "Kaleci":
-                                goalkeepers.Add(listView1.CheckedItems[i].SubItems[1].Text, int.Parse(listView1.CheckedItems[i].SubItems[3].Text));
-                                break;
-                            case "Defans":
-                                defences.Add(listView1.CheckedItems[i].SubItems[1].Text, int.Parse(listView1.CheckedItems[i].SubItems[3].Text));
-                                break;
-                            case "Orta Saha":
-                                middlefielders.Add(listView1.CheckedItems[i].SubItems[1].Text, int.Parse(listView1.CheckedItems[i].SubItems[3].Text));
-                                break;
-                            case "Forvet":
-                                forwards.Add(listView1.CheckedItems[i].SubItems[1].Text, int.Parse(listView1.CheckedItems[i].SubItems[3].Text));
-                                break;
+                            eightToTen.Add(
+                                new Player
+                                {
+                                    playerName = playerList[i].playerName,
+                                    overall = playerList[i].overall,
+                                });
+                        }
+                        else if (playerList[i].overall >= 7)
+                        {
+                            sevenToEight.Add(
+                               new Player
+                               {
+                                   playerName = playerList[i].playerName,
+                                   overall = playerList[i].overall,
+                               });
+                        }
+                        else if (playerList[i].overall >= 6)
+                        {
+                            sixToSeven.Add(
+                               new Player
+                               {
+                                   playerName = playerList[i].playerName,
+                                   overall = playerList[i].overall,
+                               });
+                        }
+                        else if (playerList[i].overall >= 5)
+                        {
+                            fiveToSix.Add(
+                               new Player
+                               {
+                                   playerName = playerList[i].playerName,
+                                   overall = playerList[i].overall,
+                               });
                         }
                     }
-                    goalkeepers = goalkeepers.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
 
-
-                    for (int i = 0; i < goalkeepers.Count; i++)
+                    for (int i = 0; i < eightToTen.Count; i++)
                     {
                         if (lastTeam == 1)
                         {
-                            listBoxTeamA.Items.Add(goalkeepers[i]);
+                            listBoxTeamA.Items.Add(eightToTen[i].playerName);
                             lastTeam = 2;
                         }
                         else
                         {
-                            listBoxTeamB.Items.Add(goalkeepers[i]);
+                            listBoxTeamB.Items.Add(eightToTen[i].playerName);
                             lastTeam = 1;
                         }
                     }
-                    for (int i = 0; i < defences.Count; i++)
+                    for (int i = 0; i < sevenToEight.Count; i++)
                     {
                         if (lastTeam == 1)
                         {
-                            listBoxTeamA.Items.Add(defences[i]);
+                            listBoxTeamA.Items.Add(sevenToEight[i].playerName);
                             lastTeam = 2;
                         }
                         else
                         {
-                            listBoxTeamB.Items.Add(defences[i]);
+                            listBoxTeamB.Items.Add(sevenToEight[i].playerName);
                             lastTeam = 1;
                         }
                     }
-                    for (int i = 0; i < middlefielders.Count; i++)
+                    for (int i = 0; i < sixToSeven.Count; i++)
                     {
                         if (lastTeam == 1)
                         {
-                            listBoxTeamA.Items.Add(middlefielders[i]);
+                            listBoxTeamA.Items.Add(sixToSeven[i].playerName);
                             lastTeam = 2;
                         }
                         else
                         {
-                            listBoxTeamB.Items.Add(middlefielders[i]);
+                            listBoxTeamB.Items.Add(sixToSeven[i].playerName);
                             lastTeam = 1;
                         }
                     }
-                    for (int i = 0; i < forwards.Count; i++)
+                    for (int i = 0; i < fiveToSix.Count; i++)
                     {
                         if (lastTeam == 1)
                         {
-                            listBoxTeamA.Items.Add(forwards[i]);
+                            listBoxTeamA.Items.Add(fiveToSix[i].playerName);
                             lastTeam = 2;
                         }
                         else
                         {
-                            listBoxTeamB.Items.Add(forwards[i]);
+                            listBoxTeamB.Items.Add(fiveToSix[i].playerName);
                             lastTeam = 1;
                         }
                     }
@@ -163,5 +208,12 @@ namespace LineUp
                 MessageBox.Show("ex.message: " + ex.Message + " stacktrace:" + ex.StackTrace, "Create Squad Error");
             }
         }
+    }
+
+    public class Player
+    {
+        public string playerName { get; set; }
+        public int overall { get; set; }
+
     }
 }

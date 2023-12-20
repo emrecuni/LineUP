@@ -32,10 +32,10 @@
             this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             this.buttonAddPlayer = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDownOverall = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDownOverall = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOverall)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,7 @@
             this.comboBoxPosition.Name = "comboBoxPosition";
             this.comboBoxPosition.Size = new System.Drawing.Size(143, 28);
             this.comboBoxPosition.TabIndex = 1;
+            this.comboBoxPosition.Visible = false;
             // 
             // buttonAddPlayer
             // 
@@ -86,23 +87,27 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
-            // label2
+            // numericUpDownOverall
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Mevki:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Oyuncu Adı:";
+            this.numericUpDownOverall.Location = new System.Drawing.Point(106, 152);
+            this.numericUpDownOverall.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownOverall.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownOverall.Name = "numericUpDownOverall";
+            this.numericUpDownOverall.Size = new System.Drawing.Size(143, 27);
+            this.numericUpDownOverall.TabIndex = 6;
+            this.numericUpDownOverall.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // label3
             // 
@@ -113,27 +118,24 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Güç:";
             // 
-            // numericUpDownOverall
+            // label2
             // 
-            this.numericUpDownOverall.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.numericUpDownOverall.Location = new System.Drawing.Point(106, 152);
-            this.numericUpDownOverall.Minimum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.numericUpDownOverall.Name = "numericUpDownOverall";
-            this.numericUpDownOverall.Size = new System.Drawing.Size(143, 27);
-            this.numericUpDownOverall.TabIndex = 6;
-            this.numericUpDownOverall.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Mevki:";
+            this.label2.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Oyuncu Adı:";
             // 
             // FormAddPlayer
             // 

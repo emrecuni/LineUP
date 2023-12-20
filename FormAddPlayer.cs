@@ -23,7 +23,7 @@ namespace LineUp
         StringBuilder filePath = new StringBuilder();
         StringBuilder query = new StringBuilder();
         List<string> players = new List<string>();
-        Dictionary<int, Tuple<string, string, int>> allPlayers = new Dictionary<int, Tuple<string, string, int>>();
+        Dictionary<int, Tuple< string, double>> allPlayers = new Dictionary<int, Tuple< string, double>>();
         bool control = true;
         int playerOverall;
 
@@ -31,16 +31,16 @@ namespace LineUp
         {
             try
             {
-                if (textBoxName.Text != null && textBoxName.Text != string.Empty && comboBoxPosition.SelectedIndex != -1)
+                if (textBoxName.Text != null && textBoxName.Text != string.Empty) //&& comboBoxPosition.SelectedIndex != -1)
                 {
                     players.Clear();
                     playerName.Clear();
-                    playerPosition.Clear();
+                    //playerPosition.Clear();
                     allPlayers.Clear();
                     query.Clear();
 
                     playerName.Append(textBoxName.Text);
-                    playerPosition.Append(comboBoxPosition.SelectedItem.ToString());
+                    //playerPosition.Append(comboBoxPosition.SelectedItem.ToString());
                     playerOverall = int.Parse(numericUpDownOverall.Value.ToString());
 
                     query.Append("SELECT * FROM Table_Players");
@@ -48,7 +48,7 @@ namespace LineUp
 
                     foreach (var player in allPlayers.Values)
                     {
-                        if (player.Item1 == playerName.ToString() && player.Item2 == playerPosition.ToString())
+                        if (player.Item1 == playerName.ToString())
                         {
                             MessageBox.Show("Var Olan Oyuncuyu Ekleyemezsiniz!", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             control = false;
@@ -59,7 +59,7 @@ namespace LineUp
                     if (control)
                     {
                         query.Clear();
-                        query.Append($"INSERT INTO Table_Players (playerName, position, overall) VALUES ('{playerName}','{playerPosition}',{playerOverall})");
+                        query.Append($"INSERT INTO Table_Players (playerName,  overall) VALUES ('{playerName}', {playerOverall})");
                         if (SQLProcess.AddPlayer(query.ToString()))
                             MessageBox.Show($"{playerName} Başarıyla Eklendi!", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
