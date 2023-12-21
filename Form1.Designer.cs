@@ -126,6 +126,7 @@
             // columnHeaderOverall
             // 
             this.columnHeaderOverall.Text = "Güç";
+            this.columnHeaderOverall.Width = 0;
             // 
             // label2
             // 
