@@ -190,6 +190,18 @@ namespace LineUp
                 MessageBox.Show("ex.message: " + ex.Message + " stacktrace:" + ex.StackTrace, "Create Squad Error");
             }
         }
+
+        private void checkBoxAllSelect_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                 MessageBox.Show("ex.message: " + ex.Message + " stacktrace:" + ex.StackTrace, "All Select Error");
+            }
+        }
     }
 
     public class Player
