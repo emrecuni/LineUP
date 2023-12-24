@@ -58,6 +58,12 @@
     <Compile Include="FormAddPlayer.Designer.cs">
       <DependentUpon>FormAddPlayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSelectGoalkeeper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectGoalkeeper.Designer.cs">
+      <DependentUpon>FormSelectGoalkeeper.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLProcess.cs" />
@@ -66,6 +72,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddPlayer.resx">
       <DependentUpon>FormAddPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectGoalkeeper.resx">
+      <DependentUpon>FormSelectGoalkeeper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

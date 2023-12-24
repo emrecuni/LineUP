@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.checkBoxAllSelect = new System.Windows.Forms.CheckBox();
             this.buttonCreateSquad = new System.Windows.Forms.Button();
             this.listViewAllPlayers = new System.Windows.Forms.ListView();
             this.columnHeaderCheck = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxTeamB = new System.Windows.Forms.ListBox();
             this.listBoxTeamA = new System.Windows.Forms.ListBox();
-            this.checkBoxAllSelect = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -86,6 +86,17 @@
             this.splitContainer1.Size = new System.Drawing.Size(718, 537);
             this.splitContainer1.SplitterDistance = 273;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // checkBoxAllSelect
+            // 
+            this.checkBoxAllSelect.AutoSize = true;
+            this.checkBoxAllSelect.Location = new System.Drawing.Point(12, 7);
+            this.checkBoxAllSelect.Name = "checkBoxAllSelect";
+            this.checkBoxAllSelect.Size = new System.Drawing.Size(111, 24);
+            this.checkBoxAllSelect.TabIndex = 2;
+            this.checkBoxAllSelect.Text = "Tümünü Seç";
+            this.checkBoxAllSelect.UseVisualStyleBackColor = true;
+            this.checkBoxAllSelect.CheckedChanged += new System.EventHandler(this.checkBoxAllSelect_CheckedChanged);
             // 
             // buttonCreateSquad
             // 
@@ -168,17 +179,6 @@
             this.listBoxTeamA.Size = new System.Drawing.Size(165, 244);
             this.listBoxTeamA.TabIndex = 0;
             // 
-            // checkBoxAllSelect
-            // 
-            this.checkBoxAllSelect.AutoSize = true;
-            this.checkBoxAllSelect.Location = new System.Drawing.Point(12, 7);
-            this.checkBoxAllSelect.Name = "checkBoxAllSelect";
-            this.checkBoxAllSelect.Size = new System.Drawing.Size(111, 24);
-            this.checkBoxAllSelect.TabIndex = 2;
-            this.checkBoxAllSelect.Text = "Tümünü Seç";
-            this.checkBoxAllSelect.UseVisualStyleBackColor = true;
-            this.checkBoxAllSelect.CheckedChanged += new System.EventHandler(this.checkBoxAllSelect_CheckedChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -215,12 +215,12 @@
         private System.Windows.Forms.ToolStripMenuItem addPlayerToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader columnHeaderCheck;
         private System.Windows.Forms.ColumnHeader columnHeaderName;
-        private System.Windows.Forms.ListBox listBoxTeamB;
-        private System.Windows.Forms.ListBox listBoxTeamA;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader columnHeaderOverall;
         private System.Windows.Forms.CheckBox checkBoxAllSelect;
+        public System.Windows.Forms.ListBox listBoxTeamB;
+        public System.Windows.Forms.ListBox listBoxTeamA;
     }
 }
 

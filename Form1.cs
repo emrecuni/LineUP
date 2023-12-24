@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LineUp
 {
@@ -23,6 +24,7 @@ namespace LineUp
         Dictionary<int, Tuple<string, double>> allPlayers = new Dictionary<int, Tuple<string, double>>();
         Random random = new Random();
         int lastTeam = 1;
+        public static List<string> goalkepers = new List<string>();
         List<Player> playerList = new List<Player>();
         List<Player> eightToTen = new List<Player>();
         List<Player> sevenToEight = new List<Player>();
@@ -90,7 +92,23 @@ namespace LineUp
                             });
                     }
                     playerList = playerList.OrderBy(x => random.Next()).ToList();
-                    
+
+                    DialogResult dialogResult = MessageBox.Show("Kalecileri Seçmek İster Misiniz?", "UYARI", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        FormSelectGoalkeeper selectGoalkeeper = new FormSelectGoalkeeper(playerList);
+                        selectGoalkeeper.ShowDialog();
+                        if(goalkepers.Count == 2)
+                        {
+                            listBoxTeamA.Items.Add(goalkepers[0]);
+                            listBoxTeamB.Items.Add(goalkepers[1]);
+                            var gk1 = playerList.First(x => x.playerName == goalkepers[0]);
+                            playerList.Remove(gk1);
+                            var gk2 = playerList.First(x => x.playerName == goalkepers[1]);
+                            playerList.Remove(gk2);
+                        }                       
+                    }
+
                     for (int i = 0; i < playerList.Count; i++)
                     {
                         if (playerList[i].overall >= 8)
@@ -184,6 +202,8 @@ namespace LineUp
                         }
                     }
                 }
+                else
+                    MessageBox.Show("Lütfen Oyuncu Seçiniz!", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -196,10 +216,17 @@ namespace LineUp
             try
             {
 
+                for (int i = 0; i < listViewAllPlayers.Items.Count; i++)
+                {
+                    if (checkBoxAllSelect.Checked)
+                        listViewAllPlayers.Items[i].Checked = true;
+                    else
+                        listViewAllPlayers.Items[i].Checked = false;
+                }
             }
             catch (Exception ex)
             {
-                 MessageBox.Show("ex.message: " + ex.Message + " stacktrace:" + ex.StackTrace, "All Select Error");
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace:" + ex.StackTrace, "All Select Error");
             }
         }
     }
@@ -208,6 +235,5 @@ namespace LineUp
     {
         public string playerName { get; set; }
         public double overall { get; set; }
-
     }
 }
