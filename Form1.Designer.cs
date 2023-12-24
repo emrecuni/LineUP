@@ -129,12 +129,12 @@
             // columnHeaderCheck
             // 
             this.columnHeaderCheck.Text = "Seç";
-            this.columnHeaderCheck.Width = 40;
+            this.columnHeaderCheck.Width = 50;
             // 
             // columnHeaderName
             // 
             this.columnHeaderName.Text = "Oyuncu";
-            this.columnHeaderName.Width = 140;
+            this.columnHeaderName.Width = 190;
             // 
             // columnHeaderOverall
             // 
